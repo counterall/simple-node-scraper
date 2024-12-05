@@ -1,0 +1,11 @@
+# Node dependencies
+node_modules
+
+# Local env files
+.env
+.env.*
+
+# vercel
+.vercel
+
+.vscode/
