@@ -36,29 +36,26 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const cheerio = __importStar(require("cheerio"));
-const axios_1 = __importDefault(require("axios"));
 const dotenv = __importStar(require("dotenv"));
+const gigantti_1 = __importDefault(require("./providers/gigantti"));
+const power_1 = __importDefault(require("./providers/power"));
 dotenv.config();
 const scraper = async () => {
-    const s9UltraUrlGigantti = "https://www.gigantti.fi/product/puhelimet-tabletit-ja-alykellot/tabletit/samsung-galaxy-tab-s9-ultra-wifi-tabletti-12256-gb-grafiitti/630946";
     const ntfyUrl = process.env.NTFY_URL;
     try {
-        const $gigantti = await cheerio.fromURL(s9UltraUrlGigantti);
-        const parentAttr = "[data-cro=\"pdp-main-price-box\"]";
-        const priceClass = "inc-vat";
-        const result = {
-            "store": "Gigantti",
-            "price": $gigantti(`${parentAttr} .${priceClass}`).text() || 0
-        };
-        if (ntfyUrl) {
-            axios_1.default.post(ntfyUrl, result);
-        }
+        const giganttiResult = await (0, gigantti_1.default)("/puhelimet-tabletit-ja-alykellot/tabletit/samsung-galaxy-tab-s9-ultra-wifi-tabletti-12256-gb-grafiitti/630946");
+        const poweresult = await (0, power_1.default)("/tietotekniikka/tabletit-ja-tarvikkeet/tablet-tietokoneet/samsung-galaxy-tab-s9-ultra-wifi-256-gt-graphite/p-2311617");
+        const notification = [giganttiResult, poweresult];
+        console.log({ notification });
+        // if (ntfyUrl) {
+        //   axios.post(ntfyUrl, notification);
+        // }
     }
     catch (error) {
-        console.log(error);
+        console.log(error.message);
     }
 };
-setInterval(async () => {
-    await scraper();
-}, 5000);
+scraper();
+// setInterval(async() => {
+//   await scraper();
+// }, 600000);

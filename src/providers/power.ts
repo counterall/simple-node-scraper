@@ -4,7 +4,6 @@ export default async function(productRelativeUrl: string) {
   let result = {};
   try{
     const productUrl = `${process.env.POWER_BASE_URL}${productRelativeUrl}`;
-    console.log({ productUrl })
     // launch the browser in headless mode
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
@@ -16,8 +15,8 @@ export default async function(productRelativeUrl: string) {
     await browser.close();
 
     result = {
-      "store": "Power",
-      "price": priceTxt || 0
+      store: "Power",
+      price: parseInt(priceTxt || "")
     };
   } catch (error: any) {
     throw new Error(error);

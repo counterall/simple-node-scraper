@@ -7,9 +7,11 @@ export default async function(productRelativeUrl: string) {
     const $gigantti = await cheerio.fromURL(productUrl);
     const parentAttr = "[data-cro=\"pdp-main-price-box\"]";
     const priceClass= "inc-vat";
+    const priceTxt = $gigantti(`${parentAttr} .${priceClass}`).text() || "";
+    const price = parseInt(priceTxt.split("€")[0]);
     result = {
-      "store": "Gigantti",
-      "price": $gigantti(`${parentAttr} .${priceClass}`).text() || 0
+      store: "Gigantti",
+      price
     };
   } catch (error: any) {
     throw new Error(error);
