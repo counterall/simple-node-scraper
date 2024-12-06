@@ -1,14 +1,16 @@
 import axios from 'axios';
 import * as dotenv from 'dotenv';
 import giganttiScraper from './providers/gigantti';
+import powerScraper from './providers/power';
 dotenv.config();
 
 const scraper = async () => {
   const ntfyUrl = process.env.NTFY_URL;
   try {
-    const result = await giganttiScraper("/puhelimet-tabletit-ja-alykellot/tabletit/samsung-galaxy-tab-s9-ultra-wifi-tabletti-12256-gb-grafiitti/630946");
+    const giganttiResult = await giganttiScraper("/puhelimet-tabletit-ja-alykellot/tabletit/samsung-galaxy-tab-s9-ultra-wifi-tabletti-12256-gb-grafiitti/630946");
+    const poweresult = await powerScraper("/tietotekniikka/tabletit-ja-tarvikkeet/tablet-tietokoneet/samsung-galaxy-tab-s9-ultra-wifi-256-gt-graphite/p-2311617");
     if (ntfyUrl) {
-      axios.post(ntfyUrl, result);
+      axios.post(ntfyUrl, [giganttiResult, poweresult]);
     }
   } catch (error: any) {
     console.log(error.message)

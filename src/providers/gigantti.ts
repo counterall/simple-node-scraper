@@ -11,7 +11,6 @@ export default async function(productRelativeUrl: string) {
       "store": "Gigantti",
       "price": $gigantti(`${parentAttr} .${priceClass}`).text() || 0
     };
-    console.log({ productUrl, result })
   } catch (error: any) {
     throw new Error(error);
   }
