@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { format } from 'date-fns';
 import * as dotenv from 'dotenv';
 dotenv.config();
 import type { Notification } from './type';
@@ -16,9 +17,10 @@ export default function (payload: Notification[]) {
     body.push(tmp.join("\n"));
   })
   if (ntfyUrl) {
+    const updateAt = format(new Date(), 'yyyy-MM-dd HH:mm');
     axios.post(ntfyUrl, body.join("\n\n"), {
       headers: {
-        'Title': "Price Update"
+        'Title': `Price Update (${updateAt})`
       }
     });
   }
