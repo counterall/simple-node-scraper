@@ -1,27 +1,22 @@
-import axios from 'axios';
-import * as dotenv from 'dotenv';
 import data from './db.json';
-dotenv.config();
-import type { Notificaton } from './type';
+import type { Notification } from './type';
 import scrapeProduct from './scrapeProduct';
+import ntfyNotify from './ntfy';
 
 const scraper = async () => {
   const { product: productsToScrape } = data;
-  const ntfyUrl = process.env.NTFY_URL;
-  let notificaton: Notificaton[] = [];
+  let notification: Notification[] = [];
   if (Array.isArray(productsToScrape) && productsToScrape.length) {
     for(const product of productsToScrape) {
       const result = await scrapeProduct(product);
       const { name, normalPrice } = product;
       if (result) {
-        notificaton = [...notificaton, { product: name, normalPrice, providers: result } ];
+        notification = [...notification, { product: name, normalPrice, providers: result } ];
       }
     }
   }
-  console.log({ notificaton: JSON.stringify(notificaton) });
-  if (ntfyUrl) {
-    axios.post(ntfyUrl, notificaton);
-  }
+  console.log({ notification: JSON.stringify(notification) });
+  ntfyNotify(notification)
 }
 
 scraper();

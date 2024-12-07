@@ -22,7 +22,7 @@ export type Provider = {
     enabled: string;
 }
 
-export type Notificaton = {
+export type Notification = {
     product: string;
     normalPrice: number;
     providers: ProductPrice[];
