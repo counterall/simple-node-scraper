@@ -23,7 +23,7 @@ export default async function(productRelativeUrl: string) {
       const $vk = await cheerio.load(response.data);
       const parentAttr = "[data-price=\"current\"]";
       const priceTxt = $vk(`${parentAttr}`).prop('value') || "";
-      const price = parseInt(priceTxt);
+      const price = parseFloat(priceTxt);
       result = {
         store: name,
         price
