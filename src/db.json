@@ -24,7 +24,14 @@
       "id": "s9_ultra",
       "name": "Galaxy Tab S9 Ultra 12/256",
       "normalPrice": 1449.99,
+      "enabled": true,
       "thresholdPrice": 800
+    },
+    {
+      "id": "airpods_max",
+      "name": "Apple AirPods Max",
+      "enabled": false,
+      "normalPrice": 579
     }
   ],
   "productsToScrape": [
@@ -42,6 +49,21 @@
       "productId": "s9_ultra",
       "providerId": "power",
       "relativeUrl": "/tietotekniikka/tabletit-ja-tarvikkeet/tablet-tietokoneet/samsung-galaxy-tab-s9-ultra-wifi-256-gt-graphite/p-2311617"
+    },
+    {
+      "productId": "airpods_max",
+      "providerId": "gigantti",
+      "relativeUrl": "/tv-aani-ja-alykoti/kuulokkeet-ja-tarvikkeet/kuulokkeet/apple-airpods-max-usb-c-langattomat-around-ear-kuulokkeet-sininen/825371"
+    },
+    {
+      "productId": "airpods_max",
+      "providerId": "vk",
+      "relativeUrl": "/956072/Apple-AirPods-Max-kuulokkeet-keskiyo"
+    },
+    {
+      "productId": "airpods_max",
+      "providerId": "power",
+      "relativeUrl": "/tv-ja-audio/kuulokkeet/langattomat-kuulokkeet/apple-airpods-max-keskiyo-usb-c/p-3614401"
     }
   ]
 }
