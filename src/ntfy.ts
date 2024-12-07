@@ -16,7 +16,7 @@ export default function (payload: Notification[]) {
     body.push(tmp.join("\n"));
   })
   if (ntfyUrl) {
-    axios.post(ntfyUrl, body.join("\n\n\n"), {
+    axios.post(ntfyUrl, body.join("\n\n"), {
       headers: {
         'Title': "Price Update"
       }

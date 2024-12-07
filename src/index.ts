@@ -7,11 +7,14 @@ const scraper = async () => {
   const { product: productsToScrape } = data;
   let notification: Notification[] = [];
   if (Array.isArray(productsToScrape) && productsToScrape.length) {
-    for(const product of productsToScrape) {
-      const result = await scrapeProduct(product);
-      const { name, normalPrice } = product;
-      if (result.length) {
-        notification = [...notification, { product: name, normalPrice, providers: result } ];
+    const enabledProducts = productsToScrape.filter(p => p.enabled);
+    if (enabledProducts.length) {
+      for(const product of enabledProducts) {
+        const result = await scrapeProduct(product);
+        const { name, normalPrice } = product;
+        if (result.length) {
+          notification = [...notification, { product: name, normalPrice, providers: result } ];
+        }
       }
     }
   }
