@@ -1,0 +1,46 @@
+{
+  "providers": [
+    {
+      "id": "gigantti",
+      "name": "Gigantti",
+      "baseUrl": "https://www.gigantti.fi/product",
+      "enabled": true
+    },
+    {
+      "id": "power",
+      "name": "Power",
+      "baseUrl": "https://www.power.fi",
+      "enabled": true
+    },
+    {
+      "id": "vk",
+      "name": "Verkkokauppa",
+      "baseUrl": "https://www.verkkokauppa.com/fi/product",
+      "enabled": true
+    }
+  ],
+  "product": [
+    {
+      "id": "s9_ultra",
+      "name": "Galaxy Tab S9 Ultra 12/256",
+      "normalPrice": 1449.99
+    }
+  ],
+  "productsToScrape": [
+    {
+      "productId": "s9_ultra",
+      "providerId": "gigantti",
+      "relativeUrl": "/puhelimet-tabletit-ja-alykellot/tabletit/samsung-galaxy-tab-s9-ultra-wifi-tabletti-12256-gb-grafiitti/630946"
+    },
+    {
+      "productId": "s9_ultra",
+      "providerId": "vk",
+      "relativeUrl": "/886699/Samsung-Galaxy-Tab-S9-Ultra-14-6-WiFi-tabletti-12-Gt-256-Gt"
+    },
+    {
+      "productId": "s9_ultra",
+      "providerId": "power",
+      "relativeUrl": "/tietotekniikka/tabletit-ja-tarvikkeet/tablet-tietokoneet/samsung-galaxy-tab-s9-ultra-wifi-256-gt-graphite/p-2311617"
+    }
+  ]
+}
