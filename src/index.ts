@@ -10,13 +10,15 @@ const scraper = async () => {
     for(const product of productsToScrape) {
       const result = await scrapeProduct(product);
       const { name, normalPrice } = product;
-      if (result) {
+      if (result.length) {
         notification = [...notification, { product: name, normalPrice, providers: result } ];
       }
     }
   }
-  console.log({ notification: JSON.stringify(notification) });
-  ntfyNotify(notification)
+  if (notification.length) {
+    console.log({ notification: JSON.stringify(notification) });
+    ntfyNotify(notification);
+  }
 }
 
 scraper();

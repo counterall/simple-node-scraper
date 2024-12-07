@@ -7,7 +7,7 @@ dotenv.config();
 import type { Product, ProductToScrape, ProductPrice } from './type';
 
 export default async function (product: Product) {
-  const { id } = product;
+  const { id, thresholdPrice } = product;
   let { productsToScrape } = data;
   productsToScrape = productsToScrape.filter((product: ProductToScrape) => product.productId === id)
   let prices: ProductPrice[] = [];
@@ -28,8 +28,11 @@ export default async function (product: Product) {
         default:
           break;
       }
-      if (price) {
-        prices = [...prices, price];
+      if (price?.price) {
+        const thredsholdTriggered = thresholdPrice ? price.price <= thresholdPrice : true;
+        if (thredsholdTriggered){
+          prices = [...prices, price];
+        }
       }
     }
   }

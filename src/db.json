@@ -23,7 +23,8 @@
     {
       "id": "s9_ultra",
       "name": "Galaxy Tab S9 Ultra 12/256",
-      "normalPrice": 1449.99
+      "normalPrice": 1449.99,
+      "thresholdPrice": 800
     }
   ],
   "productsToScrape": [

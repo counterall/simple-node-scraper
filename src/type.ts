@@ -2,6 +2,7 @@ export type Product = {
     id: string;
     name: string;
     normalPrice: number;
+    thresholdPrice?: number;
 }
 
 export type ProductToScrape = {
