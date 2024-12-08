@@ -15,19 +15,22 @@ export default async function (product: Product) {
     for(const product of productsToScrape) {
       let price: ProductPrice | undefined;
       const { providerId, relativeUrl } = product;
-      switch (providerId) {
-        case GIGANTTI_ID:
-          price = await giganttiScraper(relativeUrl);
-          break;
-        case POWER_ID:
-          price = await powerScraper(relativeUrl);
-          break;
-        case VK_ID:
-            price = await vkScraper(relativeUrl);
+      if (relativeUrl) {
+        switch (providerId) {
+          case GIGANTTI_ID:
+            price = await giganttiScraper(relativeUrl);
             break;
-        default:
-          break;
+          case POWER_ID:
+            price = await powerScraper(relativeUrl);
+            break;
+          case VK_ID:
+              price = await vkScraper(relativeUrl);
+              break;
+          default:
+            break;
+        }
       }
+      
       if (price?.price) {
         const thredsholdTriggered = thresholdPrice ? price.price <= thresholdPrice : price.price < normalPrice;
         if (thredsholdTriggered){

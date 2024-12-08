@@ -17,24 +17,45 @@
       "name": "Verkkokauppa",
       "baseUrl": "https://www.verkkokauppa.com/fi/product",
       "enabled": true
+    },
+    {
+      "id": "steam",
+      "name": "Steam",
+      "baseUrl": "https://store.steampowered.com/api/appdetails",
+      "enabled": true
     }
   ],
   "product": [
     {
       "id": "s9_ultra",
       "name": "Galaxy Tab S9 Ultra 12/256",
-      "normalPrice": 1449.99,
+      "type": "physical",
       "enabled": true,
-      "thresholdPrice": 800
+      "normalPrice": 1449.99,
+      "thresholdPrice": 900
     },
     {
       "id": "airpods_max",
       "name": "Apple AirPods Max",
-      "enabled": false,
+      "type": "physical",
+      "enabled": true,
       "normalPrice": 579
+    },
+    {
+      "id": "god_of_war_ragnarök",
+      "name": "God of War Ragnarök",
+      "type": "digital",
+      "enabled": true,
+      "normalPrice": 59.99,
+      "thresholdPrice": 30
     }
   ],
   "productsToScrape": [
+    {
+      "productId": "god_of_war_ragnarök",
+      "providerId": "steam",
+      "appId": "2322010"
+    },
     {
       "productId": "s9_ultra",
       "providerId": "gigantti",
