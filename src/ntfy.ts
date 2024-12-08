@@ -9,7 +9,7 @@ export default function (payload: Notification[]) {
   const body: string[] = [];
   payload.forEach((nt: Notification) => {
     const { product, normalPrice, providers } = nt;
-    const priceList = providers.map(p => `- ${p.store}: ${p.price}€`);
+    const priceList = providers.map(p => `- ${p.store}: ${p.price}€${p.discount ? `(-${p.discount}%)` : ""}`);
     const tmp = [
       `${product} (${normalPrice}€)`,
       priceList.join("\n")

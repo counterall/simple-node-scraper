@@ -22,12 +22,14 @@ export default async function(appId: string) {
       const priceDetail = response.data[appId]?.data?.price_overview;
       if(priceDetail) {
         const { initial, final, discount_percent } = priceDetail;
-        result = {
-          store: name,
-          price: final ? final/100 : 0,
-          initialPrice: initial ? initial/100 : 0,
-          discount: `${discount_percent}%`
-        };
+        if (discount_percent > 0) {
+          result = {
+            store: name,
+            price: final ? final/100 : 0,
+            initialPrice: initial ? initial/100 : 0,
+            discount: discount_percent
+          };
+        }
       }
       
     } catch (error: any) {

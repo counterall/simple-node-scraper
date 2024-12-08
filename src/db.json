@@ -32,7 +32,7 @@
       "type": "physical",
       "enabled": true,
       "normalPrice": 1449.99,
-      "thresholdPrice": 900
+      "thresholdPrice": 850
     },
     {
       "id": "airpods_max",

@@ -18,7 +18,7 @@ export type ProductPrice = {
     store: string;
     price: number;
     initialPrice?: number;
-    discount?: string;
+    discount?: number;
 }
 
 export type Provider = {
