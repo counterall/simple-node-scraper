@@ -3,6 +3,7 @@ import type { Notification } from './type';
 import scrapeProduct from './scrapeProduct';
 import scrapeGame from './scrapeGame';
 import ntfyNotify from './ntfy';
+import cron from 'node-cron';
 
 const scraper = async () => {
   const { product: productsToScrape } = data;
@@ -35,9 +36,7 @@ const scraper = async () => {
   }
 }
 
-scraper();
-
-// Perodically check product prices
-// setInterval(async() => {
-//   await scraper();
-// }, 600000);
+cron.schedule('* * * * *', async () => {
+  await scraper();
+  console.log("cron job executed!");
+});
