@@ -35,11 +35,12 @@
       "thresholdPrice": 850
     },
     {
-      "id": "airpods_max",
-      "name": "Apple AirPods Max",
+      "id": "legion_go",
+      "name": "Lenovo Legion Go",
       "type": "physical",
       "enabled": true,
-      "normalPrice": 579
+      "normalPrice": 799,
+      "thresholdPrice": 600
     },
     {
       "id": "god_of_war_ragnarök",
@@ -72,19 +73,19 @@
       "relativeUrl": "/tietotekniikka/tabletit-ja-tarvikkeet/tablet-tietokoneet/samsung-galaxy-tab-s9-ultra-wifi-256-gt-graphite/p-2311617"
     },
     {
-      "productId": "airpods_max",
+      "productId": "legion_go",
       "providerId": "gigantti",
-      "relativeUrl": "/tv-aani-ja-alykoti/kuulokkeet-ja-tarvikkeet/kuulokkeet/apple-airpods-max-usb-c-langattomat-around-ear-kuulokkeet-sininen/825371"
+      "relativeUrl": "/gaming/pelitietokoneet/kannettava-pelilaite/lenovo-legion-go-kannettava-pelilaite/653040"
     },
     {
-      "productId": "airpods_max",
+      "productId": "legion_go",
       "providerId": "vk",
-      "relativeUrl": "/956072/Apple-AirPods-Max-kuulokkeet-keskiyo"
+      "relativeUrl": "/892831/Lenovo-Legion-Go-kasikonsoli"
     },
     {
-      "productId": "airpods_max",
+      "productId": "legion_go",
       "providerId": "power",
-      "relativeUrl": "/tv-ja-audio/kuulokkeet/langattomat-kuulokkeet/apple-airpods-max-keskiyo-usb-c/p-3614401"
+      "relativeUrl": "/pelaaminen/pc/kasikonsolit/lenovo-legion-go-512-gt-kasikonsoli/p-2566473"
     }
   ]
 }
