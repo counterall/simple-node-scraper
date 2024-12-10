@@ -36,7 +36,7 @@ const scraper = async () => {
   }
 }
 
-cron.schedule('* * * * *', async () => {
+cron.schedule('1 * * * *', async () => {
   await scraper();
   console.log("cron job executed!");
 });
