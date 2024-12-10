@@ -13,7 +13,7 @@ export default async function(productRelativeUrl: string) {
     try{
       const productUrl = `${baseUrl}${productRelativeUrl}`;
       // launch the browser in headless mode
-      const browser = await puppeteer.launch();
+      const browser = await puppeteer.launch({args: ["--no-sandbox"]});
       const page = await browser.newPage();
       await page.goto(productUrl);
       const priceContainer = await page.waitForSelector(
