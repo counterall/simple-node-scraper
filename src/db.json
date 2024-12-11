@@ -47,8 +47,7 @@
       "name": "God of War Ragnarök",
       "type": "digital",
       "enabled": true,
-      "normalPrice": 59.99,
-      "thresholdPrice": 30
+      "normalPrice": 59.99
     }
   ],
   "productsToScrape": [
