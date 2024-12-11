@@ -10,18 +10,17 @@ export default async function(productRelativeUrl: string) {
   const provider = providers.find(p => p.id === POWER_ID);
   if (provider && provider.enabled) {
     const { name, baseUrl } = provider;
+    let browser; 
     try{
       const productUrl = `${baseUrl}${productRelativeUrl}`;
       // launch the browser in headless mode
-      const browser = await puppeteer.launch({args: ["--no-sandbox"]});
+      browser = await puppeteer.launch({args: ["--no-sandbox"]});
       const page = await browser.newPage();
       await page.goto(productUrl);
       const priceContainer = await page.waitForSelector(
         '.price-container',
       );
-      const priceTxt = await priceContainer?.evaluate(el => el.textContent);
-      await browser.close();
-  
+      const priceTxt = await priceContainer?.evaluate(el => el.textContent);  
       result = {
         store: name,
         price: parseInt(priceTxt || "")
@@ -29,6 +28,7 @@ export default async function(productRelativeUrl: string) {
     } catch (error: any) {
       console.log(error);
     }
+    await browser?.close();
   }
 
   return result;
