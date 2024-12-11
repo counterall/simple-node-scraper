@@ -1,6 +1,7 @@
 import puppeteer from "puppeteer";
 import type { ProductPrice } from '../type';
 import data from '../db.json';
+import logger from "../logger";
 
 export const POWER_ID = "power";
 
@@ -27,6 +28,7 @@ export default async function(productRelativeUrl: string) {
       };
     } catch (error: any) {
       console.log(error);
+      logger.error(error);
     }
     await browser?.close();
   }

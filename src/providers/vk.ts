@@ -2,6 +2,7 @@ import axios from 'axios';
 import * as cheerio from 'cheerio';
 import type { ProductPrice } from '../type';
 import data from '../db.json';
+import logger from "../logger";
 
 export const VK_ID = 'vk';
 
@@ -30,6 +31,7 @@ export default async function(productRelativeUrl: string) {
       };
     } catch (error: any) {
       console.log(error);
+			logger.error(error);
     }
   }
   return result;

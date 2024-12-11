@@ -1,4 +1,5 @@
 dist
+*.log
 
 # Node dependencies
 node_modules

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import type { ProductPrice } from '../type';
 import data from '../db.json';
+import logger from "../logger";
 
 export const STEAM_ID = 'steam';
 
@@ -34,6 +35,7 @@ export default async function(appId: string) {
       
     } catch (error: any) {
       console.log(error);
+      logger.error(error);
     }
   }
   return result;

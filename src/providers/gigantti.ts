@@ -1,6 +1,7 @@
 import * as cheerio from 'cheerio';
 import type { ProductPrice } from '../type';
 import data from '../db.json';
+import logger from "../logger";
 
 export const GIGANTTI_ID = 'gigantti';
 
@@ -23,7 +24,8 @@ export default async function(productRelativeUrl: string) {
         price
       };
     } catch (error: any) {
-      console.log(error);
+      // console.log(error);
+      logger.error(error);
     }
   }
   return result;
