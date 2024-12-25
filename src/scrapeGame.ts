@@ -6,7 +6,7 @@ import type { Product, ProductToScrape, ProductPrice } from './type';
 
 export default async function (product: Product) {
   const { id } = product;
-  let { productsToScrape } = data;
+  let { productsToScrape }: { productsToScrape: ProductToScrape[] } = data;
   productsToScrape = productsToScrape.filter((product: ProductToScrape) => product.productId === id)
   let prices: ProductPrice[] = [];
   if (productsToScrape.length) {
