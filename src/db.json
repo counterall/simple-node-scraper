@@ -35,27 +35,15 @@
       "thresholdPrice": 850
     },
     {
-      "id": "legion_go",
-      "name": "Lenovo Legion Go",
+      "id": "s9_plus",
+      "name": "Galaxy Tab S9+ 12/256",
       "type": "physical",
       "enabled": true,
-      "normalPrice": 799,
-      "thresholdPrice": 600
-    },
-    {
-      "id": "god_of_war_ragnarök",
-      "name": "God of War Ragnarök",
-      "type": "digital",
-      "enabled": true,
-      "normalPrice": 59.99
+      "normalPrice": 1199.99,
+      "thresholdPrice": 500    
     }
   ],
   "productsToScrape": [
-    {
-      "productId": "god_of_war_ragnarök",
-      "providerId": "steam",
-      "appId": "2322010"
-    },
     {
       "productId": "s9_ultra",
       "providerId": "gigantti",
@@ -72,19 +60,18 @@
       "relativeUrl": "/tietotekniikka/tabletit-ja-tarvikkeet/tablet-tietokoneet/samsung-galaxy-tab-s9-ultra-wifi-256-gt-graphite/p-2311617"
     },
     {
-      "productId": "legion_go",
+      "productId": "s9_plus",
       "providerId": "gigantti",
-      "relativeUrl": "/gaming/pelitietokoneet/kannettava-pelilaite/lenovo-legion-go-kannettava-pelilaite/653040"
-    },
+      "relativeUrl": "/puhelimet-tabletit-ja-alykellot/tabletit/samsung-galaxy-tab-s9-wifi-tabletti-12256-gb-grafiitti/630940"},
     {
-      "productId": "legion_go",
+      "productId": "s9_plus",
       "providerId": "vk",
-      "relativeUrl": "/892831/Lenovo-Legion-Go-kasikonsoli"
+      "relativeUrl": "/886693/Samsung-Galaxy-Tab-S9-12-4-WiFi-tabletti-12-Gt-256-Gt"
     },
     {
-      "productId": "legion_go",
+      "productId": "s9_plus",
       "providerId": "power",
-      "relativeUrl": "/pelaaminen/pc/kasikonsolit/lenovo-legion-go-512-gt-kasikonsoli/p-2566473"
+      "relativeUrl": "/tietotekniikka/tabletit-ja-tarvikkeet/tablet-tietokoneet/samsung-galaxy-tab-s9-wifi-256-gt-graphite/p-2311610"
     }
   ]
 }
