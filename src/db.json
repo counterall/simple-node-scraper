@@ -27,51 +27,29 @@
   ],
   "product": [
     {
-      "id": "s9_ultra",
-      "name": "Galaxy Tab S9 Ultra 12/256",
+      "id": "ps5_slim",
+      "name": "PlayStation 5 Slim Digital Edition",
       "type": "physical",
       "enabled": true,
-      "normalPrice": 1449.99,
-      "thresholdPrice": 850
-    },
-    {
-      "id": "s9_plus",
-      "name": "Galaxy Tab S9+ 12/256",
-      "type": "physical",
-      "enabled": true,
-      "normalPrice": 1199.99,
-      "thresholdPrice": 500    
+      "normalPrice": 500,
+      "thresholdPrice": 0
     }
   ],
   "productsToScrape": [
     {
-      "productId": "s9_ultra",
+      "productId": "ps5_slim",
       "providerId": "gigantti",
-      "relativeUrl": "/puhelimet-tabletit-ja-alykellot/tabletit/samsung-galaxy-tab-s9-ultra-wifi-tabletti-12256-gb-grafiitti/630946"
+      "relativeUrl": "/gaming/pelikonsolit-ja-tarvikkeet/playstation/playstation-konsolit/playstation-5-slim-digital-edition-2023-pelikonsoli/716233"
     },
     {
-      "productId": "s9_ultra",
+      "productId": "ps5_slim",
       "providerId": "vk",
-      "relativeUrl": "/886699/Samsung-Galaxy-Tab-S9-Ultra-14-6-WiFi-tabletti-12-Gt-256-Gt"
+      "relativeUrl": "/904696/PlayStation-5-Slim-Digital-Edition-PS5-pelikonsoli"
     },
     {
-      "productId": "s9_ultra",
+      "productId": "ps5_slim",
       "providerId": "power",
-      "relativeUrl": "/tietotekniikka/tabletit-ja-tarvikkeet/tablet-tietokoneet/samsung-galaxy-tab-s9-ultra-wifi-256-gt-graphite/p-2311617"
-    },
-    {
-      "productId": "s9_plus",
-      "providerId": "gigantti",
-      "relativeUrl": "/puhelimet-tabletit-ja-alykellot/tabletit/samsung-galaxy-tab-s9-wifi-tabletti-12256-gb-grafiitti/630940"},
-    {
-      "productId": "s9_plus",
-      "providerId": "vk",
-      "relativeUrl": "/886693/Samsung-Galaxy-Tab-S9-12-4-WiFi-tabletti-12-Gt-256-Gt"
-    },
-    {
-      "productId": "s9_plus",
-      "providerId": "power",
-      "relativeUrl": "/tietotekniikka/tabletit-ja-tarvikkeet/tablet-tietokoneet/samsung-galaxy-tab-s9-wifi-256-gt-graphite/p-2311610"
+      "relativeUrl": "/pelaaminen/playstation/playstation-konsolit/playstation-5-slim-digital-edition/p-2856455"
     }
   ]
 }
