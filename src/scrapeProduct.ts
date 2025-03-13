@@ -3,6 +3,7 @@ import giganttiScraper, { GIGANTTI_ID } from './providers/gigantti';
 import powerScraper, { POWER_ID } from './providers/power';
 import vkScraper, { VK_ID } from './providers/vk';
 import dnaScraper, { DNA_ID } from './providers/dna';
+import elisaScraper, { ELISA_ID } from './providers/elisa';
 import data from './db.json';
 dotenv.config();
 import type { Product, ProductToScrape, ProductPrice } from './type';
@@ -36,6 +37,9 @@ export default async function (product: Product) {
               break;
           case DNA_ID:
               price = await dnaScraper(relativeUrl);
+              break;
+          case ELISA_ID:
+              price = await elisaScraper(relativeUrl);
               break;
           default:
             break;
