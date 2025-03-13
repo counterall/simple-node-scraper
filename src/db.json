@@ -31,6 +31,12 @@
       "enabled": true
     },
     {
+      "id": "telia",
+      "name": "Telia",
+      "baseUrl": "https://www.telia.fi/kauppa/tuote",
+      "enabled": true
+    },
+    {
       "id": "steam",
       "name": "Steam",
       "baseUrl": "https://store.steampowered.com/api/appdetails",
@@ -44,7 +50,7 @@
       "type": "physical",
       "enabled": true,
       "normalPrice": 500,
-      "thresholdPrice": 0
+      "thresholdPrice": 400
     }
   ],
   "productsToScrape": [
@@ -72,6 +78,11 @@
       "productId": "ps5_slim",
       "providerId": "elisa",
       "relativeUrl": "/sony-playstation-5-digital-(slim)"
+    },
+    {
+      "productId": "ps5_slim",
+      "providerId": "telia",
+      "relativeUrl": "/playstation-5-digital-edition-slim"
     }
   ]
 }

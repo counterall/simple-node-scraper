@@ -4,6 +4,7 @@ import powerScraper, { POWER_ID } from './providers/power';
 import vkScraper, { VK_ID } from './providers/vk';
 import dnaScraper, { DNA_ID } from './providers/dna';
 import elisaScraper, { ELISA_ID } from './providers/elisa';
+import teliaScraper, { TELIA_ID } from './providers/telia';
 import data from './db.json';
 dotenv.config();
 import type { Product, ProductToScrape, ProductPrice } from './type';
@@ -40,6 +41,9 @@ export default async function (product: Product) {
               break;
           case ELISA_ID:
               price = await elisaScraper(relativeUrl);
+              break;
+          case TELIA_ID:
+              price = await teliaScraper(relativeUrl);
               break;
           default:
             break;
