@@ -2,6 +2,7 @@ import * as dotenv from 'dotenv';
 import giganttiScraper, { GIGANTTI_ID } from './providers/gigantti';
 import powerScraper, { POWER_ID } from './providers/power';
 import vkScraper, { VK_ID } from './providers/vk';
+import dnaScraper, { DNA_ID } from './providers/dna';
 import data from './db.json';
 dotenv.config();
 import type { Product, ProductToScrape, ProductPrice } from './type';
@@ -9,7 +10,14 @@ import type { Product, ProductToScrape, ProductPrice } from './type';
 export default async function (product: Product) {
   const { id, thresholdPrice, normalPrice } = product;
   let { productsToScrape } = data;
-  productsToScrape = productsToScrape.filter((product: ProductToScrape) => product.productId === id)
+  const { providers } = data;
+  productsToScrape = productsToScrape.filter((product: ProductToScrape) => {
+    const providerFound = providers.find((provider) => provider.id === product.providerId);
+    if (providerFound && providerFound.enabled && product.productId === id) {
+      return true;
+    }
+    return false;
+  })
   let prices: ProductPrice[] = [];
   if (productsToScrape.length) {
     for(const product of productsToScrape) {
@@ -25,6 +33,9 @@ export default async function (product: Product) {
             break;
           case VK_ID:
               price = await vkScraper(relativeUrl);
+              break;
+          case DNA_ID:
+              price = await dnaScraper(relativeUrl);
               break;
           default:
             break;

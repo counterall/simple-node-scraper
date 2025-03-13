@@ -19,6 +19,12 @@
       "enabled": true
     },
     {
+      "id": "dna",
+      "name": "DNA",
+      "baseUrl": "https://kauppa.dna.fi/tuote/p",
+      "enabled": true
+    },
+    {
       "id": "steam",
       "name": "Steam",
       "baseUrl": "https://store.steampowered.com/api/appdetails",
@@ -50,6 +56,11 @@
       "productId": "ps5_slim",
       "providerId": "power",
       "relativeUrl": "/pelaaminen/playstation/playstation-konsolit/playstation-5-slim-digital-edition/p-2856455"
+    },
+    {
+      "productId": "ps5_slim",
+      "providerId": "dna",
+      "relativeUrl": "/playstation-5-slim-digital-edition-pelikonsoli"
     }
   ]
 }
