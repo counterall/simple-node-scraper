@@ -3,7 +3,6 @@ import type { Notification } from './type';
 import scrapeProduct from './scrapeProduct';
 import scrapeGame from './scrapeGame';
 import ntfyNotify from './ntfy';
-import cron from 'node-cron';
 
 const scraper = async () => {
   const { product: productsToScrape } = data;
@@ -36,7 +35,12 @@ const scraper = async () => {
   }
 }
 
-cron.schedule('1 * * * *', async () => {
-  await scraper();
-  console.log("cron job executed!");
-});
+export const simpleNodeScraper = async function (req: any, res: any) {
+  try {
+    await scraper();
+    res.status(200).send('Scraping completed');
+  } catch (error: any) {
+    console.log(error.message);
+    res.status(500).send('Scraping failed');
+  }
+};

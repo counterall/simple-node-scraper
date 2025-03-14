@@ -1,0 +1,17 @@
+# source files
+node_modules/
+dist/
+*.log
+
+# IDE
+.vscode/
+
+# Git
+.git 
+.gitignore
+
+# gcloud itself
+.gcloudignore
+
+# Config files
+eslint.*

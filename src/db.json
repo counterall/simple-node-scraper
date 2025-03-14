@@ -14,7 +14,7 @@
     },
     {
       "id": "vk",
-      "name": "Verkkokauppa",
+      "name": "VK",
       "baseUrl": "https://www.verkkokauppa.com/fi/product",
       "enabled": true
     },
