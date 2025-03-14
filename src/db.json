@@ -4,37 +4,43 @@
       "id": "gigantti",
       "name": "Gigantti",
       "baseUrl": "https://www.gigantti.fi/product",
-      "enabled": true
+      "enabled": true,
+      "type": "dom"
     },
     {
       "id": "power",
       "name": "Power",
       "baseUrl": "https://www.power.fi",
-      "enabled": true
+      "enabled": true,
+      "type": "dom"
     },
     {
       "id": "vk",
       "name": "VK",
       "baseUrl": "https://www.verkkokauppa.com/fi/product",
-      "enabled": true
+      "enabled": true,
+      "type": "dom"
     },
     {
       "id": "dna",
       "name": "DNA",
       "baseUrl": "https://kauppa.dna.fi/tuote/p",
-      "enabled": true
+      "enabled": true,
+      "type": "dom"
     },
     {
       "id": "elisa",
       "name": "Elisa",
       "baseUrl": "https://elisa.fi/kauppa/tuote",
-      "enabled": true
+      "enabled": true,
+      "type": "dom"
     },
     {
       "id": "telia",
       "name": "Telia",
-      "baseUrl": "https://www.telia.fi/kauppa/tuote",
-      "enabled": true
+      "baseUrl": "https://api.prod.b2c-new-online.com/api/v1/variant/pricing",
+      "enabled": true,
+      "type": "api"
     },
     {
       "id": "steam",
@@ -82,7 +88,11 @@
     {
       "productId": "ps5_slim",
       "providerId": "telia",
-      "relativeUrl": "/playstation-5-digital-edition-slim"
+      "payload": {
+        "variantIds": [
+          "9126550"
+        ]
+      }
     }
   ]
 }

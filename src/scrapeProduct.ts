@@ -24,8 +24,10 @@ export default async function (product: Product) {
   if (productsToScrape.length) {
     for(const product of productsToScrape) {
       let price: ProductPrice | undefined;
-      const { providerId, relativeUrl } = product;
-      if (relativeUrl) {
+      const { providerId, relativeUrl, payload } = product;
+      const providerFound = providers.find((provider) => provider.id === providerId);
+      const scrapingType = providerFound?.type 
+      if (scrapingType === "dom" && relativeUrl) {
         switch (providerId) {
           case GIGANTTI_ID:
             price = await giganttiScraper(relativeUrl);
@@ -42,8 +44,13 @@ export default async function (product: Product) {
           case ELISA_ID:
               price = await elisaScraper(relativeUrl);
               break;
+          default:
+            break;
+        }
+      } else if (scrapingType === "api" && payload) {
+        switch (providerId) {
           case TELIA_ID:
-              price = await teliaScraper(relativeUrl);
+              price = await teliaScraper(payload);
               break;
           default:
             break;

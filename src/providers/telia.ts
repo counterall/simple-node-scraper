@@ -1,36 +1,29 @@
-import puppeteer from "puppeteer";
+import axios from 'axios';
 import type { ProductPrice } from '../type';
 import data from '../db.json';
 import logger from "../logger";
 
 export const TELIA_ID = "telia";
 
-export default async function(productRelativeUrl: string) {
+export default async function(payload: { variantIds: string[]}) {
   let result: ProductPrice | undefined;
   const { providers } = data;
   const provider = providers.find(p => p.id === TELIA_ID);
   if (provider && provider.enabled) {
     const { name, baseUrl } = provider;
-    let browser; 
     try{
-      const productUrl = `${baseUrl}${productRelativeUrl}`;
-      // launch the browser in headless mode
-      browser = await puppeteer.launch({args: ["--no-sandbox"]});
-      const page = await browser.newPage();
-      await page.goto(productUrl);
-      const priceContainer = await page.waitForSelector(
-        '.price-now',
-      );
-      const priceTxt = await priceContainer?.evaluate(el => el.textContent);  
-      result = {
-        store: name,
-        price: parseInt(priceTxt || "")
-      };
+      const response = await axios.post(baseUrl, payload)
+      const price = response.data[0]?.price?.withVat;
+      if(price) {
+        result = {
+          store: name,
+          price
+        };
+      }
     } catch (error: any) {
       console.log(error);
       logger.error(error);
     }
-    await browser?.close();
   }
 
   return result;
