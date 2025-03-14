@@ -10,9 +10,9 @@
     {
       "id": "power",
       "name": "Power",
-      "baseUrl": "https://www.power.fi",
+      "baseUrl": "https://www.power.fi/api/v2/products",
       "enabled": true,
-      "type": "dom"
+      "type": "api"
     },
     {
       "id": "vk",
@@ -73,7 +73,9 @@
     {
       "productId": "ps5_slim",
       "providerId": "power",
-      "relativeUrl": "/pelaaminen/playstation/playstation-konsolit/playstation-5-slim-digital-edition/p-2856455"
+      "payload": {
+        "id": "2856455"
+      }
     },
     {
       "productId": "ps5_slim",
@@ -89,9 +91,7 @@
       "productId": "ps5_slim",
       "providerId": "telia",
       "payload": {
-        "variantIds": [
-          "9126550"
-        ]
+        "id": "9126550"
       }
     }
   ]

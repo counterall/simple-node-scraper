@@ -1,36 +1,33 @@
-import puppeteer from "puppeteer";
+import axios from 'axios';
 import type { ProductPrice } from '../type';
 import data from '../db.json';
 import logger from "../logger";
 
 export const POWER_ID = "power";
 
-export default async function(productRelativeUrl: string) {
+export default async function(payload: { id: string}) {
   let result: ProductPrice | undefined;
   const { providers } = data;
   const provider = providers.find(p => p.id === POWER_ID);
-  if (provider && provider.enabled) {
+  if (provider && provider.enabled && payload?.id) {
     const { name, baseUrl } = provider;
-    let browser; 
     try{
-      const productUrl = `${baseUrl}${productRelativeUrl}`;
-      // launch the browser in headless mode
-      browser = await puppeteer.launch({args: ["--no-sandbox"]});
-      const page = await browser.newPage();
-      await page.goto(productUrl);
-      const priceContainer = await page.waitForSelector(
-        '.price-container',
-      );
-      const priceTxt = await priceContainer?.evaluate(el => el.textContent);  
-      result = {
-        store: name,
-        price: parseInt(priceTxt || "")
-      };
+      const response = await axios.get(baseUrl, {
+        params: {
+          ids: payload.id
+        }
+      })
+      const price = response.data[0]?.price;
+      if(price) {
+        result = {
+          store: name,
+          price
+        };
+      }
     } catch (error: any) {
       console.log(error);
       logger.error(error);
     }
-    await browser?.close();
   }
 
   return result;

@@ -32,9 +32,6 @@ export default async function (product: Product) {
           case GIGANTTI_ID:
             price = await giganttiScraper(relativeUrl);
             break;
-          case POWER_ID:
-            price = await powerScraper(relativeUrl);
-            break;
           case VK_ID:
               price = await vkScraper(relativeUrl);
               break;
@@ -49,9 +46,12 @@ export default async function (product: Product) {
         }
       } else if (scrapingType === "api" && payload) {
         switch (providerId) {
+          case POWER_ID:
+            price = await powerScraper(payload);
+            break;
           case TELIA_ID:
-              price = await teliaScraper(payload);
-              break;
+            price = await teliaScraper(payload);
+            break;
           default:
             break;
         }
