@@ -3,9 +3,9 @@
     {
       "id": "gigantti",
       "name": "Gigantti",
-      "baseUrl": "https://www.gigantti.fi/product",
+      "baseUrl": "https://www.gigantti.fi/api/price",
       "enabled": true,
-      "type": "dom"
+      "type": "api"
     },
     {
       "id": "power",
@@ -17,9 +17,9 @@
     {
       "id": "vk",
       "name": "VK",
-      "baseUrl": "https://www.verkkokauppa.com/fi/product",
+      "baseUrl": "https://api.verkkokauppa.com/api/v1/info",
       "enabled": true,
-      "type": "dom"
+      "type": "api"
     },
     {
       "id": "dna",
@@ -51,47 +51,51 @@
   ],
   "product": [
     {
-      "id": "ps5_slim",
-      "name": "PlayStation 5 Slim Digital Edition",
+      "id": "ps_portal",
+      "name": "PlayStation Portal Midnight Black",
       "type": "physical",
       "enabled": true,
-      "normalPrice": 500,
-      "thresholdPrice": 400
+      "normalPrice": 250,
+      "thresholdPrice": 200
     }
   ],
   "productsToScrape": [
     {
-      "productId": "ps5_slim",
+      "productId": "ps_portal",
       "providerId": "gigantti",
-      "relativeUrl": "/gaming/pelikonsolit-ja-tarvikkeet/playstation/playstation-konsolit/playstation-5-slim-digital-edition-2023-pelikonsoli/716233"
-    },
-    {
-      "productId": "ps5_slim",
-      "providerId": "vk",
-      "relativeUrl": "/904696/PlayStation-5-Slim-Digital-Edition-PS5-pelikonsoli"
-    },
-    {
-      "productId": "ps5_slim",
-      "providerId": "power",
       "payload": {
-        "id": "2856455"
+        "id": "890550"
       }
     },
     {
-      "productId": "ps5_slim",
+      "productId": "ps_portal",
+      "providerId": "vk",
+      "payload": {
+        "id": "975395"
+      }
+    },
+    {
+      "productId": "ps_portal",
+      "providerId": "power",
+      "payload": {
+        "id": "3919560"
+      }
+    },
+    {
+      "productId": "ps_portal",
       "providerId": "dna",
-      "relativeUrl": "/playstation-5-slim-digital-edition-pelikonsoli"
+      "relativeUrl": "/sony-playstation-portal-midnight-black"
     },
     {
-      "productId": "ps5_slim",
+      "productId": "ps_portal",
       "providerId": "elisa",
-      "relativeUrl": "/sony-playstation-5-digital-(slim)"
+      "relativeUrl": "/sony-playstation-portal-midnight-black"
     },
     {
-      "productId": "ps5_slim",
+      "productId": "ps_portal",
       "providerId": "telia",
       "payload": {
-        "id": "9126550"
+        "id": "9125795"
       }
     }
   ]
