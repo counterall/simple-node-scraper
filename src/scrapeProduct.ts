@@ -29,9 +29,6 @@ export default async function (product: Product) {
       const scrapingType = providerFound?.type 
       if (scrapingType === "dom" && relativeUrl) {
         switch (providerId) {
-          case GIGANTTI_ID:
-            price = await giganttiScraper(relativeUrl);
-            break;
           case VK_ID:
               price = await vkScraper(relativeUrl);
               break;
@@ -51,6 +48,9 @@ export default async function (product: Product) {
             break;
           case TELIA_ID:
             price = await teliaScraper(payload);
+            break;
+          case GIGANTTI_ID:
+            price = await giganttiScraper(payload);
             break;
           default:
             break;
