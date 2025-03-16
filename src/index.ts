@@ -4,7 +4,7 @@ import scrapeProduct from './scrapeProduct';
 import scrapeGame from './scrapeGame';
 import ntfyNotify from './ntfy';
 
-const scraper = async () => {
+const scraper = async (): Promise<Notification[]> => {
   const { product: productsToScrape } = data;
   let notification: Notification[] = [];
   if (Array.isArray(productsToScrape) && productsToScrape.length) {
@@ -30,15 +30,15 @@ const scraper = async () => {
     }
   }
   if (notification.length) {
-    console.log({ notification: JSON.stringify(notification) });
     ntfyNotify(notification);
   }
+  return notification;
 }
 
 export const simpleNodeScraper = async function (req: any, res: any) {
   try {
-    await scraper();
-    res.status(200).send('Scraping completed');
+    const result = await scraper();
+    res.status(200).send(result);
   } catch (error: any) {
     console.log(error.message);
     res.status(500).send('Scraping failed');
