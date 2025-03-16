@@ -1,34 +1,31 @@
 import axios from 'axios';
-import * as cheerio from 'cheerio';
 import type { ProductPrice } from '../type';
 import data from '../db.json';
 import logger from "../logger";
 
 export const VK_ID = 'vk';
 
-export default async function(productRelativeUrl: string) {
+export default async function(payload: { id: string}) {
 	let result: ProductPrice | undefined;
   const { providers } = data;
   const provider = providers.find(p => p.id === VK_ID);
 
-  if (provider && provider.enabled) {
+  if (provider && provider.enabled && payload?.id) {
     const { name, baseUrl } = provider;
     try{
-      const productUrl = `${baseUrl}${productRelativeUrl}`;
-			const headers = {
-				'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/109.0'
-			}
-			const response = await axios.get(productUrl, {
-					headers,
-			})
-      const $vk = await cheerio.load(response.data);
-      const parentAttr = "[data-price=\"current\"]";
-      const priceTxt = $vk(`${parentAttr}`).prop('value') || "";
-      const price = parseFloat(priceTxt);
-      result = {
-        store: name,
-        price
-      };
+      const response = await axios.get(baseUrl, {
+        params: {
+          pids: payload.id
+        }
+      })
+      const price = response.data[0]?.price
+      if(price) {
+        const vatPrice =  price * 1.255
+        result = {
+          store: name,
+          price: Number(vatPrice.toFixed(2))
+        };
+      }
     } catch (error: any) {
       console.log(error);
 			logger.error(error);
