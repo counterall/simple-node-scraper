@@ -57,6 +57,14 @@
       "enabled": true,
       "normalPrice": 250,
       "thresholdPrice": 200
+    },
+    {
+      "id": "msi_34_oled",
+      "name": "MSI MPG 341CQPX 34,18\" QD-OLED",
+      "type": "physical",
+      "enabled": true,
+      "normalPrice": 1050,
+      "thresholdPrice": 0
     }
   ],
   "productsToScrape": [
@@ -65,6 +73,13 @@
       "providerId": "gigantti",
       "payload": {
         "id": "890550"
+      }
+    },
+    {
+      "productId": "msi_34_oled",
+      "providerId": "gigantti",
+      "payload": {
+        "id": "774978"
       }
     },
     {
