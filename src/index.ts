@@ -30,7 +30,7 @@ const scraper = async (): Promise<Notification[]> => {
     }
   }
   if (notification.length) {
-    // ntfyNotify(notification);
+    ntfyNotify(notification);
   }
   return notification;
 }
