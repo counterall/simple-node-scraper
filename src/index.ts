@@ -1,11 +1,11 @@
-import data from './db.json';
+import loadData from './data';
 import type { Notification } from './type';
 import scrapeProduct from './scrapeProduct';
 import scrapeGame from './scrapeGame';
 import ntfyNotify from './ntfy';
 
 const scraper = async (): Promise<Notification[]> => {
-  const { product: productsToScrape } = data;
+  const { products: productsToScrape } = await loadData();
   let notification: Notification[] = [];
   if (Array.isArray(productsToScrape) && productsToScrape.length) {
     const enabledProducts = productsToScrape.filter(p => p.enabled && p.type === 'physical');
@@ -30,7 +30,7 @@ const scraper = async (): Promise<Notification[]> => {
     }
   }
   if (notification.length) {
-    ntfyNotify(notification);
+    // ntfyNotify(notification);
   }
   return notification;
 }

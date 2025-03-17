@@ -1,16 +1,15 @@
-import * as dotenv from 'dotenv';
 import giganttiScraper, { GIGANTTI_ID } from './providers/gigantti';
 import powerScraper, { POWER_ID } from './providers/power';
 import vkScraper, { VK_ID } from './providers/vk';
 import dnaScraper, { DNA_ID } from './providers/dna';
 import elisaScraper, { ELISA_ID } from './providers/elisa';
 import teliaScraper, { TELIA_ID } from './providers/telia';
-import data from './db.json';
-dotenv.config();
+import loadData from './data';
 import type { Product, ProductToScrape, ProductPrice } from './type';
 
 export default async function (product: Product) {
   const { id, thresholdPrice, normalPrice } = product;
+  const data = await loadData();
   let { productsToScrape } = data;
   const { providers } = data;
   productsToScrape = productsToScrape.filter((product: ProductToScrape) => {

@@ -1,13 +1,13 @@
 import * as cheerio from 'cheerio';
 import type { ProductPrice } from '../type';
-import data from '../db.json';
+import loadData from '../data';
 import logger from "../logger";
 
 export const DNA_ID = 'dna';
 
 export default async function(productRelativeUrl: string) {
   let result: ProductPrice | undefined;
-  const { providers } = data;
+  const { providers } = await loadData();
   const provider = providers.find(p => p.id === DNA_ID);
 
   if (provider && provider.enabled) {

@@ -12,6 +12,9 @@ export type ProductToScrape = {
     providerId: string;
     appId?: string;
     relativeUrl?: string;
+    payload?: {
+        id: string;
+    };
 }
 
 export type ProductPrice = {
@@ -26,6 +29,7 @@ export type Provider = {
     name: string;
     baseUrl: string;
     enabled: string;
+    type: string;
 }
 
 export type Notification = {
@@ -34,3 +38,8 @@ export type Notification = {
     providers: ProductPrice[];
 }
 
+export interface Data {
+    providers: Provider[];
+    products: Product[];
+    productsToScrape: ProductToScrape[];
+}

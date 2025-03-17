@@ -2,6 +2,7 @@
 node_modules/
 dist/
 *.log
+src/db.json
 
 # IDE
 .vscode/

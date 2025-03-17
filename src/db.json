@@ -46,10 +46,11 @@
       "id": "steam",
       "name": "Steam",
       "baseUrl": "https://store.steampowered.com/api/appdetails",
-      "enabled": true
+      "enabled": true,
+      "type": "api"
     }
   ],
-  "product": [
+  "products": [
     {
       "id": "ps_portal",
       "name": "PlayStation Portal Midnight Black",
@@ -64,7 +65,7 @@
       "type": "physical",
       "enabled": true,
       "normalPrice": 1050,
-      "thresholdPrice": 0
+      "thresholdPrice": 800
     }
   ],
   "productsToScrape": [

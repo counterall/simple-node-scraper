@@ -1,13 +1,13 @@
 import axios from 'axios';
 import type { ProductPrice } from '../type';
-import data from '../db.json';
+import loadData from '../data';
 import logger from "../logger";
 
 export const STEAM_ID = 'steam';
 
 export default async function(appId: string) {
   let result: ProductPrice | undefined;
-  const { providers } = data;
+  const { providers } = await loadData();
   const provider = providers.find(p => p.id === STEAM_ID);
 
   if (provider && provider.enabled) {

@@ -1,12 +1,10 @@
-import * as dotenv from 'dotenv';
 import steamApi, { STEAM_ID } from './providers/steam';
-import data from './db.json';
-dotenv.config();
+import loadData from './data';
 import type { Product, ProductToScrape, ProductPrice } from './type';
 
 export default async function (product: Product) {
   const { id } = product;
-  let { productsToScrape }: { productsToScrape: ProductToScrape[] } = data;
+  let { productsToScrape }: { productsToScrape: ProductToScrape[] } = await loadData();
   productsToScrape = productsToScrape.filter((product: ProductToScrape) => product.productId === id)
   let prices: ProductPrice[] = [];
   if (productsToScrape.length) {
