@@ -6,7 +6,7 @@
     "start": "tsc && functions-framework --target simpleNodeScraper --source dist/",
     "dev": "ts-node-dev src/index.ts",
     "build": "tsc",
-    "deploy": "gcloud functions deploy simpleNodeScraper --runtime nodejs22 --trigger-http --allow-unauthenticated --region us-central1 --source ."
+    "deploy": "gcloud functions deploy simpleNodeScraper --runtime nodejs22 --trigger-http --no-allow-unauthenticated --region us-central1 --source ."
   },
   "author": "Kan Cong",
   "license": "ISC",
