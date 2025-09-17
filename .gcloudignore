@@ -15,3 +15,6 @@ dist/
 
 # Config files
 eslint.*
+
+# github copilot
+.github/
